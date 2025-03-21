@@ -1,7 +1,9 @@
 import { Fragment, useState } from 'react';
 import './homePage.css';
 const HomePage = () => {
-  const [Poster, setPoster] = useState('');
+  const [poster, setPoster] = useState('');
+  const [title, setTitle] = useState('Movie Title');
+  const [plot, setPlot] = useState('');
   addEventListener('submit', (e) => {
     e.preventDefault();
     apiRequest();
@@ -17,6 +19,8 @@ const HomePage = () => {
       .then((response) => response.json())
       .then((data) => {
         setPoster(data.Poster);
+        setTitle(data.Title);
+        setPlot(data.Plot);
         console.log(data);
       })
       .catch((err) => console.log('Error Fetching Data', err));
@@ -39,15 +43,12 @@ const HomePage = () => {
         </div>
         <div className='contentContainer'>
           <div className='movieImageContainer'>
-            <img className='Poster' src={Poster} alt='' />
+            <img className='Poster' src={poster} alt='' />
           </div>
           <div className='movieInfo'>
-            <h1>title</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-              minima expedita incidunt esse corporis perferendis,
-              <br /> est excepturi nesciunt odio error omnis eveniet quam,
-              deserunt modi ad ab qui odit. Ea?
+            <h1 className='movieTitle'>{title}</h1>
+            <p className='plot'>
+              <strong>Plot:</strong> {plot}
             </p>
           </div>
         </div>
