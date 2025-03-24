@@ -8,14 +8,14 @@ const Signup = () => {
           <h1>Sign In</h1>
           <form className='signupForm'>
             {' '}
-            <input type='email' id='email' placeholder='Email Adress' />
+            <input type='email' id='email' placeholder='Email Address' />
             <input type='password' id='password' placeholder='Password' />
             <input type='submit' value='Sign In ' />
           </form>
 
           <hr />
           <p className='signup'>
-            Don't have an account ? <a href='login'>Sign Up</a>
+            Don't have an account ? <a href='signup'>Sign Up</a>
           </p>
         </div>
       </div>

@@ -277,13 +277,19 @@ body {
   background-color: #5a5a6a;
   transform: translateY(-2px);
 }
-
+.actionButton:hover .buttonIcon {
+  filter: invert(27%) sepia(100%) saturate(500%) hue-rotate(300deg)
+    brightness(150%) contrast(100%);
+  transition: 0.2s ease;
+}
 .buttonIcon {
   width: 30px;
   height: 30px;
   filter: invert(27%) sepia(100%) saturate(500%) hue-rotate(300deg)
     brightness(100%) contrast(100%);
+  transition: 0.2s ease;
 }
+
 @media screen and (max-width: 768px) {
   .mainContainer {
     flex-direction: column;
@@ -294,6 +300,8 @@ body {
   .searchContainer {
     flex-direction: column;
     height: auto;
+    width: 100%;
+    box-sizing: border-box;
     padding: 10px;
   }
 
@@ -331,6 +339,7 @@ body {
     padding: 15px;
     gap: 8px;
     border-radius: 10px;
+    margin-bottom: 100px;
   }
 
   .movieTitle {
@@ -349,10 +358,14 @@ body {
   }
 
   .navigationContainer {
-    flex-direction: column;
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
     gap: 10px;
     padding: 10px;
     height: auto;
+    position: fixed;
+    bottom: 0;
   }
 
   .navItem {
