@@ -111,7 +111,7 @@ const HomePage = () => {
               <div className='title'>
                 <h1 className='movieTitle'>{title}</h1>
                 <p className='runtime'>
-                  ({runTime}) / {type} / {genre} / {released}
+                  ({runTime}) / {released}
                 </p>
               </div>
               <div className='Ratings'>
@@ -140,6 +140,9 @@ const HomePage = () => {
             </p>
             <p className='awards'>
               <strong className='strong'>Awards:</strong> {awards}
+            </p>
+            <p className='genre'>
+              {type} / {genre}
             </p>
             <div className='actionsContainer'>
               <button className='actionButton'>

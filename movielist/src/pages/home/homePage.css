@@ -7,7 +7,8 @@ body {
   background-color: #1e1e2e;
   color: #f0f0f5;
   font-family: 'Roboto', sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .mainContainer {
@@ -132,7 +133,9 @@ body {
 .runtime {
   color: #ff007a;
 }
-
+.genre {
+  color: #ff007a;
+}
 .actors {
   font-size: 1rem;
   color: #d0d0e0;
@@ -280,4 +283,120 @@ body {
   height: 30px;
   filter: invert(27%) sepia(100%) saturate(500%) hue-rotate(300deg)
     brightness(100%) contrast(100%);
+}
+@media screen and (max-width: 768px) {
+  .mainContainer {
+    flex-direction: column;
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .searchContainer {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .searchBar {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .submitBtn {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .contentContainer {
+    flex-direction: column;
+    padding: 10px;
+    gap: 15px;
+    height: auto;
+  }
+
+  .movieImageContainer {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .Poster {
+    width: 60%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  .movieInfo {
+    width: 100%;
+    padding: 15px;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .movieTitle {
+    font-size: 2rem;
+  }
+
+  .runtime,
+  .genre {
+    font-size: 1rem;
+  }
+
+  .actors,
+  .plot {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .navigationContainer {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    height: auto;
+  }
+
+  .navItem {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .actionsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: auto;
+  }
+
+  .actionButton {
+    width: 90%;
+    height: auto;
+    padding: 12px;
+    font-size: 0.9rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttonIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .Ratings {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .ratingContainer {
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .rating {
+    width: 20px;
+    height: 20px;
+  }
 }
