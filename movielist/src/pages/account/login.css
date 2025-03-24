@@ -1,0 +1,99 @@
+.signupContainer {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e1e2e;
+}
+
+.signupCard {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  width: 50%;
+  max-width: 600px;
+  padding: 25px;
+  box-sizing: border-box;
+  background-color: #2a2a3c;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  overflow: hidden;
+}
+
+.signupCard h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f2f2f2;
+  margin-bottom: 20px;
+}
+
+.signupCard input[type='text'],
+.signupCard input[type='email'],
+.signupCard input[type='password'] {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f0f0f5;
+  background-color: #3a3a4a;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.2s ease;
+}
+
+.signupCard input[type='text']:focus,
+.signupCard input[type='email']:focus,
+.signupCard input[type='password']:focus {
+  background-color: #4a4a5a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+
+.signupCard input[type='submit'] {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f0f0f5;
+  background-color: #4a4a5a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.signupCard input[type='submit']:hover {
+  background-color: #ff007a;
+  transform: translateY(-2px);
+}
+
+.signupCard input::placeholder {
+  color: #d0d0e0;
+  font-size: 0.9rem;
+}
+
+.signupCard input:not([type='submit']) {
+  transition: box-shadow 0.2s ease;
+}
+
+.signupCard input:not([type='submit']):hover {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+a {
+  color: #f80091;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}

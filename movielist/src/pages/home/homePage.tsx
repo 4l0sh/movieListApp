@@ -1,8 +1,10 @@
 import { Fragment, useState } from 'react';
-import Metacritic from '../assets/images/Metacritic.png';
-import RottenTomatoes from '../assets/images/rottenTomatoes.png';
-import IMDb from '../assets/images/IMDb.png';
-import Navbar from '../components/navbar';
+import Metacritic from '../../assets/images/Metacritic.png';
+import RottenTomatoes from '../../assets/images/rottenTomatoes.png';
+import IMDb from '../../assets/images/IMDb.png';
+import Library from '../../assets/images/library.png';
+import hide from '../../assets/images/hide.png';
+import Navbar from '../../components/navbar';
 import './homePage.css';
 
 interface Rating {
@@ -22,7 +24,11 @@ const HomePage = () => {
   const [awards, setAwards] = useState('');
   const [runTime, setRunTime] = useState('129 min');
   const [rating, setRating] = useState<Rating[]>([]);
-  const [writer, setWriter] = useState('');
+  const [rated, setRated] = useState('');
+  const [type, setType] = useState('');
+  const [genre, setGenre] = useState('');
+  const [director, setDirector] = useState('');
+  const [released, setReleased] = useState('');
   addEventListener('submit', (e) => {
     e.preventDefault();
     apiRequest();
@@ -31,21 +37,37 @@ const HomePage = () => {
     const searchInput = document.getElementById(
       'searchInput'
     ) as HTMLInputElement;
-    console.log(searchInput.value);
     fetch(
       `http://www.omdbapi.com/?t=${searchInput.value}&apikey=${import.meta.env.VITE_API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => {
-        setPoster(data.Poster || 'No Poster Available');
-        setTitle(data.Title || 'No Title Available');
-        setPlot(data.Plot || 'Info Not Available');
-        setActors(data.Actors || 'Info Not Available');
-        setAwards(data.Awards || 'Info Not Available');
-        setRunTime(data.Runtime || 'Info Not Available');
-        setRating(data.Ratings || 'Info Not Available');
-        setWriter(data.Writer || 'Info Not Available');
-        console.log(data.Ratings);
+        if (data.Response === 'False') {
+          setPoster(
+            'https://www.reelviews.net/resources/img/default_poster.jpg'
+          );
+          setTitle('No Title Available');
+          setPlot('Info Not Available');
+          setActors('Info Not Available');
+          setAwards('Info Not Available');
+          setRunTime('Info Not Available');
+          setRating([]);
+          setDirector('Info Not Available');
+        } else {
+          setPoster(data.Poster || 'No Poster Available');
+          setTitle(data.Title || 'No Title Available');
+          setPlot(data.Plot || 'Info Not Available');
+          setActors(data.Actors || 'Info Not Available');
+          setAwards(data.Awards || 'Info Not Available');
+          setRunTime(data.Runtime || 'Info Not Available');
+          setRating(data.Ratings || 'Info Not Available');
+          setRated(data.Rated || 'Info Not Available');
+          setDirector(data.Director || 'Info Not Available');
+          setType(data.Type || 'Info Not Available');
+          setReleased(data.Released || 'Info Not Available');
+          setGenre(data.Genre || 'Info Not Available');
+          console.log(data);
+        }
       })
       .catch((err) => console.log('Error Fetching Data', err));
   };
@@ -87,7 +109,10 @@ const HomePage = () => {
           <div className='movieInfo'>
             <div className='titleInfo'>
               <div className='title'>
-                <h1 className='movieTitle'>{title}</h1> <p>({runTime})</p>
+                <h1 className='movieTitle'>{title}</h1>
+                <p className='runtime'>
+                  ({runTime}) / {type} / {genre} / {released}
+                </p>
               </div>
               <div className='Ratings'>
                 {rating.map((rating) => (
@@ -100,14 +125,15 @@ const HomePage = () => {
                     <p> {rating.Value}</p>
                   </div>
                 ))}
+                <strong className='rated'>{rated}</strong>
               </div>
             </div>
 
             <p className='actors'>
-              <strong className='strong'>Actors: {actors}</strong>
+              <strong className='strong'>Actors:</strong> {actors}
             </p>
             <p className='writer'>
-              <strong className='strong'>Writer: {writer}</strong>
+              <strong className='strong'>Director:</strong> {director}
             </p>
             <p className='plot'>
               <strong className='strong'>Plot:</strong> {plot}
@@ -115,6 +141,17 @@ const HomePage = () => {
             <p className='awards'>
               <strong className='strong'>Awards:</strong> {awards}
             </p>
+            <div className='actionsContainer'>
+              <button className='actionButton'>
+                {' '}
+                <img src={Library} className='buttonIcon' alt='' /> Add To
+                Watchlist
+              </button>
+              <button className='actionButton'>
+                {' '}
+                <img src={hide} className='buttonIcon' alt='' /> Mark as Watched
+              </button>
+            </div>
           </div>
         </div>
         <Navbar />
