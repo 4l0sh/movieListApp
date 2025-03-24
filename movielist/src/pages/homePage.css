@@ -43,6 +43,7 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease;
 }
+
 .searchForm {
   display: flex;
   width: 100%;
@@ -127,6 +128,12 @@ body {
   margin-bottom: 10px;
 }
 
+.actors {
+  font-size: 1rem;
+  color: #d0d0e0;
+  line-height: 1.5;
+}
+
 .plot {
   font-size: 1rem;
   color: #d0d0e0;
@@ -161,4 +168,51 @@ body {
 .navItem:hover {
   background-color: #3a3a4a;
   color: #d0d0e0;
+}
+.titleInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+.Ratings {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.title {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 0px;
+}
+.rating {
+  width: 30px;
+  height: 30px;
+}
+.ratingContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  margin-top: -20px;
+}
+.strong {
+  font-weight: 600;
+}
+.actors,
+.writer {
+  font-size: 1rem;
+  color: #d0d0e0;
+  line-height: 1.5;
+  margin: 0px;
+}
+.plot {
+  font-size: 1.3rem;
+  color: #d0d0e0;
+  line-height: 1.5;
+  margin: 0px;
+  font-weight: 600;
 }
